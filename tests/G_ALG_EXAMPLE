@@ -1,0 +1,13 @@
+var
+	a, b, c: integer;
+	d :real ;
+	e,f : integer;
+	j: real;
+	k : integer;
+	z :real
+
+if a + b then a := c
+if k + z then f := e
+if j+z then e:=c
+if f +z then d :=e
+if j+ z then e:= e
