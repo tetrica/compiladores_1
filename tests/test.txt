@@ -1,9 +1,9 @@
 var
-	a, b, c: integer;
+	a, _b, c: integer;
 	d :real ;
 	e,f : integer;
 	j: real;
-	k : integer;
+	k :integer;
 	z :real
 
 if a + b then a := c
