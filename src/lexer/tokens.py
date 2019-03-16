@@ -1,6 +1,10 @@
 from collections import namedtuple
 from enum import Enum, auto
 
+SYMBOLS = (',', ';', ':', ':=')
+OPERATOR = ('+')
+KEYWORDS = ('var', 'integer', 'real', 'if', 'then')
+
 __token = namedtuple('Token', [
     'content',
     'token_type',
@@ -8,6 +12,7 @@ __token = namedtuple('Token', [
 ])
 
 def to_string(obj):
+    
     return f"T<'{obj.content}', {obj.token_type}>"
 
 
