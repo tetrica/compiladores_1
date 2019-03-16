@@ -20,7 +20,9 @@ def tokenize(path):
                         token_list.add_new_token(':=', index)
                     else:
                         token_list.add_new_token(':', index)
-                    
+
+                        if char not in NO_SEMANTICS:
+                            buff += char
                     continue
 
                 if not char.isalnum():
@@ -32,6 +34,8 @@ def tokenize(path):
                         possible_double_symbol = True
                     elif char in SYMBOLS:
                         token_list.add_new_token(char, index)
+                    elif char not in NO_SEMANTICS:
+                        buff += char
 
                 elif char not in NO_SEMANTICS:
                     buff += char
