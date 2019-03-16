@@ -24,9 +24,17 @@ def new_token(content, line):
     return __token(
         content=content,
         line=line,
-        token_type=None
+        token_type=__match_type(content)
         )
 
-#FIXME(Fabio): precisamos implementar isso
-def __match_type(string):
-    return Token_type.ID
+def __match_type(lexema):
+    if lexema in OPERATOR:
+        return Token_type.OPERATOR
+    elif lexema in KEYWORDS:
+        return Token_type.KEYWORD
+    elif lexema in SYMBOLS:
+        return Token_type.SYMBOL
+    elif lexema.isalnum():
+        return Token_type.ID
+    else:
+        return Token_type.INVALID
