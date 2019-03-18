@@ -1,9 +1,6 @@
 from . import token_list as TL
 import unicodedata as ud
-
-NO_SEMANTICS = (' ', '\n', '\t')
-SYMBOLS = (',', ';', ':', '+', ':=')
-KEYWORDS = ('var', 'integer', 'real', 'if', 'then')
+from .global_vars import *
 
 def tokenize(path):
     buff = ''
@@ -12,7 +9,7 @@ def tokenize(path):
 
     with open(path) as file:
         for index, line in enumerate(file):
-            for char in line:
+            for char in line + " ":
                 if possible_double_symbol:
                     possible_double_symbol = False
 

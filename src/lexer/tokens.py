@@ -1,22 +1,24 @@
 from collections import namedtuple
 from enum import Enum, auto
+from .global_vars import *
 
-SYMBOLS = (',', ';', ':', ':=')
-OPERATOR = ('+')
-KEYWORDS = ('var', 'integer', 'real', 'if', 'then')
-
-__token = namedtuple('Token', [
+_token = namedtuple('Token', [
     'content',
     'token_type',
     'line'
 ])
 
-def to_string(obj):
-    
+def __token_to_string(obj):
     return f"T<'{obj.content}', {obj.token_type}>"
 
+def __token_equals(token, toke_other):
+    same_content = toke_other.content == token.content
+    same_type = toke_other.token_type == token.token_type
 
-__token.__str__ = to_string
+    return same_content and same_type
+
+_token.__str__ = __token_to_string
+_token.__eq__ = __token_equals
 
 class Token_type(Enum):
     ID = auto()
@@ -26,7 +28,7 @@ class Token_type(Enum):
     SYMBOL = auto()
 
 def new_token(content, line):
-    return __token(
+    return _token(
         content=content,
         line=line,
         token_type=__match_type(content)
