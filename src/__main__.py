@@ -1,4 +1,6 @@
 from lexer.lexer import tokenize
+from syntax.parser import parse
+
 import sys
 
 if __name__ == '__main__':
@@ -6,5 +8,7 @@ if __name__ == '__main__':
     
     token_list = tokenize(file_code_path)
 
-    for token in token_list:
-        print(token)
+    parse(token_list)
+
+    # for token in token_list:
+    #     print(token)
