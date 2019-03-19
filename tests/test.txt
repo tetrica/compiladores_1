@@ -1,13 +1,4 @@
 var
-	a, _b, c: integer;
-	d :real ;
-	e,f : integer;
-	j: real;
-	k :integer;
-	z :real
+	a, b: integer
 
 if a + b then a := c
-if k + z then f := e
-if j+z then e:=c
-if f +z then d :=e
-if j+ z then e:= e

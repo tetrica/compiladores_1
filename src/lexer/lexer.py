@@ -38,4 +38,7 @@ def tokenize(path):
                     buff += char
             else:
                 buff = ""
+
+    token_list.add_new_token('$', -1)
+    
     return token_list

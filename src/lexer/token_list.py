@@ -18,7 +18,7 @@ class Token_list:
         if len(self.__content) > 1:
             return Token_list(dp(self.__content[1:]))
         
-        return None
+        return Token_list(dp(self.__content[0]))
     
     def __iter__(self):
         self.__index = 0

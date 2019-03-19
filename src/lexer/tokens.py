@@ -21,6 +21,7 @@ _token.__str__ = __token_to_string
 _token.__eq__ = __token_equals
 
 class Token_type(Enum):
+    EOF = auto()
     ID = auto()
     INVALID = auto()
     KEYWORD = auto()
@@ -35,7 +36,9 @@ def new_token(content, line):
         )
 
 def __match_type(lexema):
-    if lexema in OPERATOR:
+    if lexema == '$':
+        return Token_type.EOF
+    elif lexema in OPERATOR:
         return Token_type.OPERATOR
     elif lexema in KEYWORDS:
         return Token_type.KEYWORD

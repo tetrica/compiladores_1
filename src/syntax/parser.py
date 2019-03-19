@@ -6,7 +6,11 @@ def parse(token_list):
     for token in token_list:
         assert_token_valid(token)    
 
-    Z(token_list)
+    token_list_updated = Z(token_list)
+
+    last_token = token_list_updated.head
+
+    assert_token_type_eq(last_token, Token_type.EOF)
 
     print_pass("Okay!")
 
@@ -74,7 +78,6 @@ def S(token_list):
     token_list_updated = None
 
     if current_token == IF:
-        print("if", current_token)
         token_list_updated = E(token_list.tail)
 
         current_token = token_list_updated.head
@@ -83,7 +86,6 @@ def S(token_list):
         token_list_updated = S(token_list_updated.tail)
 
     elif current_token.token_type == Token_type.ID:
-        print('id', current_token)
         token_list_updated = token_list.tail
         current_token = token_list_updated.head
 
@@ -115,3 +117,5 @@ def X(token_list):
 def Z(token_list):
     token_list_updated = I(token_list)
     token_list_updated = S(token_list_updated)
+
+    return token_list_updated
