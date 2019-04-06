@@ -32,7 +32,6 @@ class Token_list:
         
         raise StopIteration
         
-
     def add_new_token(self, content, line):
         new_token = tokens.new_token(content, line)
         self.__content.append(new_token)

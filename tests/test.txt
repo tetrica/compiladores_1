@@ -1,4 +1,4 @@
 var
-	a, b: integer
+	a, b,c: integer
 
 if a + b then a := c
