@@ -11,5 +11,5 @@ if __name__ == '__main__':
 
     parse(token_list)
 
-    # for token in token_list:
-    #     print(token)
+    for token in token_list:
+        print(token)
